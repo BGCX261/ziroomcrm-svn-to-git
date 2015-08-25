@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="contractNoForm" extends="ziroomNoForm">
+		<action name="searchOutContract" class="outContractAction" method="searchOutContract">
+			<result>/WEB-INF/jsp/contract/outcontract.jsp</result>
+		</action>
+		<action name="searchInContract" class="inContractAction" method="searchInContract">
+			<result>/WEB-INF/jsp/contract/incontract.jsp</result>
+		</action>
+	</package>
+</struts>

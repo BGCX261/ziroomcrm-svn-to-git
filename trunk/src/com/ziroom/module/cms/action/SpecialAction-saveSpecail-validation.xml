@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC 
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="vo.roomId">
+		<field-validator type="required">
+			<message><![CDATA[ 没有选择房间！ ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.imageId">
+		<field-validator type="required">
+			<message><![CDATA[ 请选择图片处理！ ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.txtZoom">
+		<field-validator type="required">
+			<message><![CDATA[ 请选择图片处理！ ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.txtTop">
+		<field-validator type="required">
+			<message><![CDATA[ 请选择图片处理！ ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.txtLeft">
+		<field-validator type="required">
+			<message><![CDATA[ 请选择图片处理！ ]]></message>
+		</field-validator>
+	</field>
+	<!--  
+	<field name="vo.width">
+		<field-validator type="required">
+			<message><![CDATA[ 图片没有进行剪切！ ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.height">
+		<field-validator type="required">
+			<message><![CDATA[ 图片没有进行剪切！ ]]></message>
+		</field-validator>
+	</field>
+	-->
+</validators>

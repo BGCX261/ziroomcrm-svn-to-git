@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<bean id="menuDao" class="com.ziroom.impl.MenuDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userDao" class="com.ziroom.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="dictDao" class="com.ziroom.impl.DictDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deptDao" class="com.ziroom.impl.DeptDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="initService" class="com.ziroom.module.system.service.InitService">
+		<property name="menuDao" ref="menuDao" />
+		<property name="dictDao" ref="dictDao" />
+	</bean>
+	<bean id="menuService" class="com.ziroom.module.system.service.MenuService"/>
+	<bean id="menuAction" class="com.ziroom.module.system.action.MenuAction" scope="prototype">
+		<property name="menuService" ref="menuService" />
+	</bean>
+	<bean id="deptService" class="com.ziroom.module.system.service.DeptService">
+		<property name="deptDao" ref="deptDao" />
+	</bean>
+	<bean id="userService" class="com.ziroom.module.system.service.UserService">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="loginService" class="com.ziroom.module.system.service.LoginService">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="loginAction" class="com.ziroom.module.system.action.LoginAction" scope="prototype">
+		<property name="loginService" ref="loginService" />
+	</bean>
+	<bean id="deptAction" class="com.ziroom.module.system.action.DeptAction" scope="prototype">
+		<property name="deptService" ref="deptService" />
+	</bean>
+	<bean id="userAction" class="com.ziroom.module.system.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="districtAction" class="com.ziroom.module.system.action.DistrictAction" scope="prototype" />
+</beans>

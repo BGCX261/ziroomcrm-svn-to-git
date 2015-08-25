@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+	定义过滤器
+-->
+<hibernate-mapping>
+	<!-- 数据有效标识位 -->
+	<filter-def name="flag">
+		<filter-param name="flag" type="string" />
+	</filter-def>
+	<!-- 房间查询 -->
+	<filter-def name="roomType">
+		<filter-param name="roomType" type="string" />
+	</filter-def>
+	<!-- 房屋查询(专员) -->
+	<filter-def name="steward">
+		<filter-param name="stewardCode" type="string"/>
+	</filter-def>
+	<!-- 房屋查询(主管及以上级别) -->
+	<filter-def name="manager">
+		<filter-param name="deptCode" type="string"/>
+	</filter-def>
+	<!-- 房间查询 -->
+	<filter-def name="room">
+		<filter-param name="sysHouseId" type="java.lang.Integer"/>
+	</filter-def>
+	<!-- 带看单权限查询 -->
+	<filter-def name="appointmentFirst">
+		<filter-param name="staffid" type="java.lang.String"/>
+	</filter-def>
+	<filter-def name="appointentSecond">
+		<filter-param name="staffid" type="java.lang.String"/>
+	</filter-def>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<!-- house 查询及权限过滤数据 -->
+	<bean id="houseConditionInterface" class="com.ziroom.module.house.service.HouseConditionInterfaceImpl"/>
+	
+	<bean id="houseDao" class="com.ziroom.impl.HouseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roomDao" class="com.ziroom.impl.RoomDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roomPictureDao" class="com.ziroom.impl.RoomPictureDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="configDao" class="com.ziroom.impl.ConfigDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="houseService" class="com.ziroom.module.house.service.HouseService">
+		<property name="houseDao" ref="houseDao" />
+		<property name="roomDao" ref="roomDao" />
+		<property name="roomPictureDao" ref="roomPictureDao" />
+		<property name="configDao" ref="configDao" />
+		<property name="houseConditionInterface" ref="houseConditionInterface" />
+	</bean>
+	<bean id="roomService" class="com.ziroom.module.house.service.RoomService">
+		<property name="roomDao" ref="roomDao" />
+		<property name="houseDao" ref="houseDao" />
+		<property name="roomPictureDao" ref="roomPictureDao" />
+		<property name="configDao" ref="configDao" />
+	</bean>
+	<bean id="houseAction" class="com.ziroom.module.house.action.HouseAction" scope="prototype">
+		<property name="houseService" ref="houseService" />
+	</bean>
+	<bean id="roomAction" class="com.ziroom.module.house.action.RoomAction" scope="prototype">
+		<property name="roomService" ref="roomService" />
+	</bean>
+</beans>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<!-- 查询及权限过滤数据 -->
+	<bean id="appointmentConditionInterface" class="com.ziroom.module.customer.service.AppointmentConditionInterface"/>
+	<bean id="customerConditionInterface" class="com.ziroom.module.customer.service.CustomerConditionInterface"/>
+	<bean id="userAppointmentConditionInterface" class="com.ziroom.module.customer.service.UserAppointmentConditionInterface"/>
+	<bean id="refereeConditionInterface" class="com.ziroom.module.customer.service.RefereeConditionInterface"/>
+	<bean id="appointmentDao" class="com.ziroom.impl.AppointmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userAppointmentDao" class="com.ziroom.impl.UserAppointmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="customerDao" class="com.ziroom.impl.CustomerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="refereeDao" class="com.ziroom.impl.RefereeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="customerService" class="com.ziroom.module.customer.service.CustomerService">
+		<property name="customerDao" ref="customerDao" />
+		<property name="customerConditionInterface" ref="customerConditionInterface" />
+	</bean>
+	<bean id="refereeService" class="com.ziroom.module.customer.service.RefereeService">
+		<property name="refereeDao" ref="refereeDao" />
+		<property name="refereeConditionInterface" ref="refereeConditionInterface" />
+	</bean>
+	<bean id="appointmentService" class="com.ziroom.module.customer.service.AppointmentService">
+		<property name="appointmentDao" ref="appointmentDao" />
+		<property name="appointmentConditionInterface" ref="appointmentConditionInterface" />
+	</bean>
+	<bean id="userAppointmentService" class="com.ziroom.module.customer.service.UserAppointmentService">
+		<property name="userAppointmentDao" ref="userAppointmentDao" />
+		<property name="userAppointmentConditionInterface" ref="userAppointmentConditionInterface" />
+	</bean>
+	<bean id="appointmentAction" class="com.ziroom.module.customer.action.AppointmentAction" scope="prototype">
+		<property name="appointmentService" ref="appointmentService" />
+	</bean>
+	<bean id="userAppointmentAction" class="com.ziroom.module.customer.action.UserAppointmentAction" scope="prototype">
+		<property name="userAppointmentService" ref="userAppointmentService" />
+	</bean>
+	<bean id="customerAction" class="com.ziroom.module.customer.action.CustomerAction" scope="prototype">
+		<property name="customerService" ref="customerService" />
+	</bean>
+	<bean id="refreeAction" class="com.ziroom.module.customer.action.RefreeAction" scope="prototype">
+		<property name="refereeService" ref="refereeService" />
+	</bean>
+</beans>

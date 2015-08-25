@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC 
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="vo.staffid">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message><![CDATA[ 用户名没有填写 ]]></message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[ ^[0-9]{8}$ ]]></param>
+			<message><![CDATA[ 用户名8位工号 ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.staffPass">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message><![CDATA[ 密码没有填写 ]]></message>
+		</field-validator>
+	</field>
+</validators>

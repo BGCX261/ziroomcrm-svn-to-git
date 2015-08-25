@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="salesNoForm" extends="ziroomNoForm">
+		<action name="searchSales" class="salesAction" method="searchSales">
+			<result>/WEB-INF/ziroom/sales/searchSales.jsp</result>
+		</action>
+		<action name="forwardSalesPage" class="salesAction" method="forwardSalesPage">
+			<result>/WEB-INF/ziroom/sales/forwardSalesPage.jsp</result>
+		</action>
+		<action name="followSalesPage" class="salesAction" method="followSalesPage">
+			<result>/WEB-INF/ziroom/sales/followSalesPage.jsp</result>
+		</action>
+		<action name="salesHistory" class="salesAction" method="salesHistory">
+			<result>/WEB-INF/ziroom/sales/salesHistory.jsp</result>
+		</action>
+		<action name="totalSalesFunnel" class="salesAction" method="totalSalesFunnel">
+			<result>/WEB-INF/ziroom/sales/totalSalesFunnel.jsp</result>
+		</action>
+	</package>
+	<package name="salesForm" extends="ziroomForm">
+		<action name="saveSales" class="salesAction" method="saveSales">
+			<result type="chain">searchSales</result>
+		</action>
+		<action name="followSales" class="salesAction" method="followSales">
+			<result type="chain">searchSales</result>
+		</action>
+	</package>
+</struts>

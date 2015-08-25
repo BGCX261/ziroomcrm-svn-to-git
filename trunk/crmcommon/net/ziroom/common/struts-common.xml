@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 访问请求后缀*.do -->
+	<constant name="struts.action.extension" value="do" />
+	<!-- 模板 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ui.templateDir" value="template" />
+	<constant name="struts.ui.templateSuffix" value="ftl" />
+	<!-- 引用资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="resources" />
+	<!-- 允许通过ognl访问静态方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- common -->
+	<package name="ziroomNoAut" extends="struts-default">
+		<interceptors>
+			<interceptor name="general" class="com.common.struts.interceptor.GeneralInterceptor" />
+			<interceptor-stack name="ziroomStack">
+				<interceptor-ref name="general" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="ziroomStack" />
+		<global-results> 
+			<result name="login">/login.jsp</result>
+			<result name="return">/return.jsp</result>
+			<result name="input">/WEB-INF/jsp/errors.jsp</result>
+		</global-results>
+	</package>
+	<package name="ziroom" extends="struts-default">
+		<interceptors>
+			<interceptor name="general" class="com.common.struts.interceptor.GeneralInterceptor" />
+			<interceptor-stack name="ziroomStack">
+				<interceptor-ref name="general" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="ziroomStack" />
+		<global-results>
+			<result name="login">/login.jsp</result>
+			<result name="return">/return.jsp</result>
+			<result name="input">/WEB-INF/jsp/errors.jsp</result>
+		</global-results>
+	</package>
+	<package name="ziroomNoForm" extends="ziroom">
+		<interceptors>
+			<interceptor name="general" class="com.common.struts.interceptor.GeneralInterceptor" />
+			<interceptor-stack name="noFormStack">
+				<interceptor-ref name="general" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="noFormStack" />
+	</package>
+	<package name="ziroomForm" extends="ziroom">
+		<interceptors>
+			<interceptor name="general" class="com.common.struts.interceptor.GeneralInterceptor" />
+			<interceptor name="token" class="com.common.struts.interceptor.TokenInterceptor" />
+			<interceptor-stack name="formStack">
+				<interceptor-ref name="token" />
+				<interceptor-ref name="general" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="formStack" />
+	</package>
+</struts>

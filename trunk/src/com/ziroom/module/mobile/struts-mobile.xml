@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="MobileNoForm" extends="ziroomNoForm">
+		<action name="report" class="mobileAction" method="report"></action>
+	</package>
+	<!-- 
+	<package name="houseForm" extends="ziroomForm">
+		<action name="pubHouse" class="houseAction" method="pubHouse">
+			<result type="chain">searchHouse</result>
+		</action>
+		<action name="pubRoom" class="roomAction" method="pubRoom">
+			<result type="chain">searchHouse</result>
+		</action>
+		<action name="showPriorRoom" class="roomAction" method="showPriorRoom">
+			<result type="chain">searchHouse</result>
+		</action>
+		<action name="showTopRoom" class="roomAction" method="showTopRoom">
+			<result type="chain">searchHouse</result>
+		</action>
+	</package>
+	 -->
+</struts>

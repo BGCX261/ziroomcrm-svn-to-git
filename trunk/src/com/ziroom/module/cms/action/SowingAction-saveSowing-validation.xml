@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC 
+  		"-//OpenSymphony Group//XWork Validator 1.0//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="vo.url">
+		<field-validator type="required">
+			<message><![CDATA[ 专题页地址没有填写 ]]></message>
+		</field-validator>
+		<field-validator type="url">
+			<message><![CDATA[ 专题页地址不正确！示例(http://www.example.com) ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.projectType">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message><![CDATA[ 专题类型没有填写 ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.big">
+		<field-validator type="required">
+			<message><![CDATA[ 主图没有上传 ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.small">
+		<field-validator type="required">
+			<message><![CDATA[ 小图没有上传 ]]></message>
+		</field-validator>
+	</field>
+	<field name="vo.textDescription">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message><![CDATA[ 文字描述没有填写 ]]></message>
+		</field-validator>
+	</field>
+</validators>

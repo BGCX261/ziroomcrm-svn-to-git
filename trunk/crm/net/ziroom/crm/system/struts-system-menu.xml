@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="menuNoForm" extends="ziroomNoForm">
+		<action name="forward">
+			<result>/WEB-INF/ziroom/init/index.jsp</result>
+		</action>
+		<action name="top">
+			<result>/WEB-INF/ziroom/init/top.jsp</result>
+		</action>
+		<action name="center">
+			<result>/WEB-INF/ziroom/init/center.jsp</result>
+		</action>
+		<action name="bottom">
+			<result>/WEB-INF/ziroom/init/bottom.jsp</result>
+		</action>
+		<action name="left" class="menuAction" method="searchSystemMenu">
+			<result>/WEB-INF/ziroom/init/left.jsp</result>
+		</action>
+	</package>
+</struts>

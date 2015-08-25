@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="customerNoForm" extends="ziroomNoForm">
+		<action name="searchAppointment" class="appointmentAction" method="searchAppointment">
+			<result>/WEB-INF/jsp/customer/appointment.jsp</result>
+		</action>
+		<action name="findAppointment" class="appointmentAction" method="findAppointment">
+			<result>/WEB-INF/jsp/customer/editappointment.jsp</result>
+		</action>
+		<action name="searchUserAppointment" class="userAppointmentAction" method="searchUserAppointment">
+			<result>/WEB-INF/jsp/customer/userappointment.jsp</result>
+		</action>
+		<action name="findUserAppointment" class="userAppointmentAction" method="findUserAppointment">
+			<result>/WEB-INF/jsp/customer/edituserappointment.jsp</result>
+		</action>
+		<action name="searchCustomerAndPayPlan" class="customerAction" method="searchCustomerAndPayPlan">
+			<result>/WEB-INF/jsp/customer/searchCustomerAndPayPlan.jsp</result>
+		</action>
+		<action name="searchReferee" class="refreeAction" method="searchReferee">
+			<result>/WEB-INF/jsp/customer/searchReferee.jsp</result>
+		</action>
+	</package>
+	<package name="customerForm" extends="ziroomForm">
+		<action name="saveAppointment" class="appointmentAction" method="saveAppointment">
+			<result type="chain">searchAppointment</result>
+		</action>
+		<action name="editUserAppointment" class="userAppointmentAction" method="editUserAppointment">
+			<result type="chain">searchUserAppointment</result>
+		</action>
+	</package>
+</struts>

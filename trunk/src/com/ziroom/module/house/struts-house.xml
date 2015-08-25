@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="houseNoForm" extends="ziroomNoForm">
+		<action name="searchHouse" class="houseAction" method="searchHouse">
+			<result>/WEB-INF/jsp/house/house.jsp</result>
+		</action>
+		<action name="pubHousePage" class="houseAction" method="pubHousePage">
+			<result>/WEB-INF/jsp/house/pubHouse.jsp</result>
+		</action>
+		<action name="pubRoomPage" class="roomAction" method="pubRoomPage">
+			<result>/WEB-INF/jsp/house/pubRoom.jsp</result>
+		</action>
+		<action name="viewHouse" class="houseAction" method="viewHouse">
+			<result>/WEB-INF/jsp/house/viewHouse.jsp</result>
+		</action>
+		<action name="downRoomPackage" class="roomAction" method="downRoomPackage">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=UFT-8</param>
+				<param name="contentDisposition">attachment,filename=${fileName}</param>
+				<param name="inputName">inputStream</param>
+				<param name="bufferSize">4096</param>
+				<param name="contentLength">${size}</param>
+			</result>
+		</action>
+	</package>
+	<package name="houseForm" extends="ziroomForm">
+		<action name="pubHouse" class="houseAction" method="pubHouse">
+			<result type="chain">searchHouse</result>
+		</action>
+		<action name="pubRoom" class="roomAction" method="pubRoom">
+			<result type="chain">searchHouse</result>
+		</action>
+		<action name="showPriorRoom" class="roomAction" method="showPriorRoom">
+			<result type="chain">searchHouse</result>
+		</action>
+		<action name="showTopRoom" class="roomAction" method="showTopRoom">
+			<result type="chain">searchHouse</result>
+		</action>
+	</package>
+</struts>

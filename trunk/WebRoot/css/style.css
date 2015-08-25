@@ -1,0 +1,195 @@
+@CHARSET "UTF-8";
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	overflow: hidden;
+}
+
+a:link {
+	text-decoration: none;
+	color: #033d61;
+	font-size: 12px;
+}
+
+a:active {
+	color: #033d61;
+	font-size: 12px;
+}
+
+a:visited {
+	
+}
+
+a:hover {
+	
+}
+
+.STYLE1 {
+	color: #000000;
+	font-size: 12px;
+}
+
+.STYLE2 {
+	font-size: 9px
+}
+
+.STYLE3 {
+	color: #033d61;
+	font-size: 12px;
+}
+
+.STYLE4 {
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+.navPoint {
+	COLOR: white;
+	CURSOR: hand;
+	FONT-FAMILY: Webdings;
+	FONT-SIZE: 9pt
+}
+
+.menu_title SPAN {
+	FONT-WEIGHT: bold;
+	LEFT: 3px;
+	COLOR: #ffffff;
+	POSITION: relative;
+	TOP: 2px
+}
+
+.menu_title2 SPAN {
+	FONT-WEIGHT: bold;
+	LEFT: 3px;
+	COLOR: #FFCC00;
+	POSITION: relative;
+	TOP: 2px
+}
+
+/** tableList css style */
+.tableList {
+	width: 100%;
+	cellspacing: 1;
+	cellpadding: 0;
+	background: #b5d6e6;
+	border: 0;
+}
+
+.tableList thead tr td {
+	background-color: #FFFFFF;
+	background-image: url(../images/bg.gif);
+}
+
+.tableList thead tr td div {
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #000000;
+	font-size: 12px;
+	text-align: center;
+}
+
+.tableList tbody tr {
+	background: #FFFFFF;
+}
+
+.tableList tbody tr td div {
+	color: #000000;
+	font-size: 12px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/** tableForm css style */
+.tableForm {
+	cellspacing: 1;
+	cellpadding: 0;
+	border: 1px solid #000;
+}
+
+.tableForm thead tr th {
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #000000;
+	font-size: 12px;
+	text-align: center;
+}
+
+.tableForm tbody tr th {
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #000000;
+	font-size: 12px;
+	text-align: right;
+	/*border:none;*/
+}
+
+.inputtext {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: 1px;
+	border-bottom-width: 1px;
+	border-bottom-color: #000000;
+	border-left-style: none;
+}
+
+/** tab css */
+.menub1_1 {
+	font-weight: bold;
+	background: url(222.png) no-repeat 0 -29px;
+	float: left;
+	width: 130px;
+	cursor: pointer;
+	color: #000;
+	line-height: 26px;
+	margin-right: 4px;
+	height: 26px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.menub1_2 {
+	font-weight: normal;
+	float: left;
+	width: 130px;
+	cursor: pointer;
+	color: #999999;
+	line-height: 26px;
+	margin-right: 4px;
+	height: 26px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.menugtab {
+	padding-right: 6px;
+	padding-left: 6px;
+	padding-bottom: 6px;
+	color: #cccccc;
+	padding-top: 6px;
+	border: #ccc 1px solid;
+	border-top: #ccc 1px solid;
+}
+
+.menugtab A {
+	margin: 0px 10px
+}
+
+.tabnav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.tabnav li {
+	padding: 5 10px;
+	border: 1px solid red;
+	float: left;
+}
+
+.tabid {
+	border: 1px solid #000;
+	clear: both;
+}

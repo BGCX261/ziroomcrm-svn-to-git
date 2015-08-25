@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<!-- sowing 查询及权限过滤数据 -->
+	<bean id="sowingConditionInterface" class="com.ziroom.module.cms.service.SowingConditionInterfaceImpl"/>
+	<bean id="specialConditionInterface" class="com.ziroom.module.cms.service.SpecialConditionInterfaceImpl"/>
+	<bean id="sowingDao" class="com.ziroom.impl.SowingDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="specialDao" class="com.ziroom.impl.SpecialDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="sowingService" class="com.ziroom.module.cms.service.SowingService">
+		<property name="sowingDao" ref="sowingDao" />
+		<property name="sowingConditionInterface" ref="sowingConditionInterface" />
+	</bean>
+	<bean id="specialService" class="com.ziroom.module.cms.service.SpecialService">
+		<property name="specialDao" ref="specialDao" />
+		<property name="houseDao" ref="houseDao" />
+		<property name="roomDao" ref="roomDao" />
+		<property name="roomPictureDao" ref="roomPictureDao" />
+		<property name="specialConditionInterface" ref="specialConditionInterface" />
+	</bean>
+	<bean id="sowingAction" class="com.ziroom.module.cms.action.SowingAction" scope="prototype">
+		<property name="sowingService" ref="sowingService" />
+	</bean>
+	<bean id="specialAction" class="com.ziroom.module.cms.action.SpecialAction" scope="prototype">
+		<property name="specialService" ref="specialService" />
+	</bean>
+</beans>
